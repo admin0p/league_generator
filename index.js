@@ -124,14 +124,15 @@ app.get("/myLeagues/:lname",checkAuth,leagueAuth,(req,res)=>{
     Match.find({name: leagueName},null, {sort: {day: "asc"}},(err,item)=>{
         if(err){console.log(err);}
         else{
-           
+          
              // table
             League.find({name: leagueName},(err,item2)=>{
                 if(err){console.log(err);}
                 else{
-                     League.aggregate([{$unwind: "$teams"},{$sort: {"teams.points": -1}}, {$group: {_id: "$_id", teams: {$push: "$teams"}}},{$project: {teams: "$teams"}}],(err,item3)=>{
+                     League.aggregate([ { $match: { name: leagueName } },{$unwind: "$teams"},{$sort: {"teams.points": -1}}, {$group: {_id: "$_id", teams: {$push: "$teams"}}},{$project: {teams: "$teams"}}],(err,item3)=>{
                 if(err){console.log(err);}
                 else{
+                 
                     res.render("myLeagues",{leagueName: leagueName, matches: item, teams: item3[0].teams});
                 }
             });//league sort 
