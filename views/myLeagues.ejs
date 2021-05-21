@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>myLeagues</title>
+</head>
+<body>
+   <h1><%=leagueName%></h1> 
+   <br><br>
+   <% for(var i=0;i<matches.length;i++){ %> 
+        <p>Day:<%=matches[i].day%> :>> <%=matches[i].teamA.name%> /(vs)/ <%=matches[i].teamB.name%> </p>
+        <% if(!matches[i].score){ %> 
+        <a href="/update/<%=matches[i].day%>/<%=leagueName%> "><button>update results</button></a>
+        <% } else{ %>  
+            <p> result==> <%=matches[i].won%> (<%=matches[i].score%> ) <%= matches[i].lost %> </p>
+            <% } %> 
+            <br>
+
+        <% } %> 
+
+        <h1>Table</h1>
+        <br>
+        <table>
+            <tr>
+                <th>position</th>
+                <th>team</th>
+                <th>wins</th>
+                <th>lost</th>
+                <th>drew</th>
+                <th>played</th>
+                <th>left</th>
+                <th>for gaol</th>
+                <th>away goal</th>
+                <th>points</th>
+            </tr>
+        
+            <% for(var i=0;i<teams.length;i++){ %> 
+               <tr>
+                    <th><%=i+1%> </th>
+                    <th><%= teams[i].name %> </th>
+                    <th><%= teams[i].won %></th>
+                    <th><%= teams[i].lost %></th>
+                    <th><%= teams[i].drew%></th>
+                    <th><%= teams[i].played %></th>
+                    <th><%= teams[i].toPlay %></th>
+                    <th><%= teams[i].forgoal %></th>
+                    <th><%= teams[i].awaygoal %></th>
+                    <th><%= teams[i].points %></th>
+               </tr>
+                
+                <% } %> 
+        
+        </table>
+        
+
+</body>
+</html>

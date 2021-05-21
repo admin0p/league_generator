@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>league</title>
+</head>
+<body>
+    <h1>league created successfully</h1>
+    <br><br>
+    <h2>arranging fixtures : eneter the days</h2>
+    <form action="/league/<%=leagueName%>" method="POST">
+    <%for(var i=0;i<totalMatches;i++){%>
+        <label for="days">days:=></label>
+        <input type="number" name="days">
+        <br>
+        <%if(i==totalMatches-1){%>
+                <button type="submit">fix</button>
+            <%}%>
+        <%}%>
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1><%=leagueName%> </h1>
+    <br><br>
+  <h2>Results of Day:<%=day%></h2>
+  <br>
+  <h2>select a winner</h2>
+    <br><br>
+    <form action="/update/<%= day %>/<%=leagueName%> " method="POST">
+      <label for="result">result</label><br>
+      <label for="teamA"><%=teamA%></label>
+      <input type="radio" name="result" value="<%=teamA%>">
+      <label for="teamB"><%=teamB%></label>
+      <input type="radio" name="result" value="<%=teamB%>">
+      <label for="draw">draw</label>
+      <input type="radio" name="result" value="draw">
+      <br><br>
+      <label for="score">score</label>
+      <input type="number" name="winner">-<input type="number" name="looser">
+      <br><br>
+
+      <button type="submit">update</button>
+
+    </form>
+</body>
+</html>

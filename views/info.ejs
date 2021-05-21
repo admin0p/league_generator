@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>league info</title>
+</head>
+<body>
+    
+    <h1>Your league was created successfully</h1>
+    <br><br>
+    <form action="/info/<%=lname%>" method="POST">
+        <label for="total teams">No. teams</label>
+        <input type="text" name="totalTeams">
+        <br>
+        <label for="no matches">No. matches each team should play against each team</label>
+        <input type="text" name="noMatches" >
+        <button type="submit">make league</button>
+    </form>
+    <br><br>
+    <p><%=message%></p>
+    <br><br>
+   
+    <form action="/team/<%=lname%>", method="POST">
+    <%for(var i=0;i<totalTeams;i++){%>
+            <label for="team">team name</label>
+            <input  type="text" name='team'>
+        <br> 
+        <%if(i==(totalTeams-1)){%>
+            <button type="submit">ADD</button>
+        <%}%>
+        <%}%>
+        
+        </form>
+        
+</body>
+</html>
