@@ -8,7 +8,7 @@ function register(Model,user,req,res){
             console.log(err);
         }
         else if(item.length!=0){
-            res.render('register',{message: "user already exist"});
+            res.render('register',{message: "user  exist"});
 
         }
         else{
